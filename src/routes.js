@@ -1,20 +1,35 @@
-import * as React from "react";
-import { View, Text, TouchableOpacity, Button } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
-import authScreen from "./pages/authScreen";
-import login from "../src/pages/login";
-import * as appColors from '../src/components/colors';
-
-const Stack = createStackNavigator();
+import React, { useState, useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import AuthRoute from './pages/AuthRoute/AuthRoute';
+import LoggedRoute from './pages/LoggedRoute/Logged';
+import Authentication from '../src/services/Authentication';
 
 export default function Routes() {
-  return (
-    <Stack.Navigator initialRouteName="Auth">
-      <Stack.Screen
-        name="Auth"
-        component={authScreen}
-      />
-      <Stack.Screen name="Login" component={login} options={{headerShown:false}} />
-    </Stack.Navigator>
-  );
+
+  if (Authentication()) {
+    console.log('Auth: ',Authentication())
+    return (
+      <NavigationContainer>
+        <LoggedRoute />
+      </NavigationContainer>
+    )
+  } else {
+    console.log('Auth: ',Authentication())
+    return (
+      <NavigationContainer>
+        <AuthRoute />
+      </NavigationContainer>
+    );
+  }
 }
+
+
+// function Root() {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="Profile" component={Profile} />
+//       <Stack.Screen name="Settings" component={Settings} />
+//     </Stack.Navigator>
+//   );
+// }
+

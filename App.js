@@ -1,13 +1,13 @@
 import React from 'react';
-import 'react-native-gesture-handler';
+import {View} from 'react-native';
+import * as AppColors from './src/assets/Colors';
 import Routes from './src/routes';
-import { NavigationContainer } from '@react-navigation/native';
 
 
 export default function App(){
   return (
-    <NavigationContainer>
-      <Routes/>
-    </NavigationContainer>
-  )
+  <View style={{flex:1, backgroundColor:AppColors.base}}>
+    <Routes/>
+    </View>
+    )
 }

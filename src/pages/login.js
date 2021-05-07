@@ -8,15 +8,15 @@ import {
   TextInput,
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import * as appColors from "../components/colors";
+import * as AppColors from "../assets/Colors";
 
-export default function login({ navigation }) {
+export default function homePage({ navigation }) {
   return (
-    <View style={{ flex: 1, backgroundColor: appColors.white }}>
-      <StatusBar backgroundColor={appColors.base} />
+    <View style={{ flex: 1, backgroundColor: AppColors.white }}>
+      <StatusBar backgroundColor={AppColors.base} />
       <View
         style={{
-          backgroundColor: appColors.base,
+          backgroundColor: AppColors.base,
           height: "30%",
           borderBottomRightRadius: 40,
           borderBottomLeftRadius: 40,
@@ -31,7 +31,7 @@ export default function login({ navigation }) {
         <View>
           <View
             style={{
-              backgroundColor: appColors.white,
+              backgroundColor: AppColors.white,
               height: 50,
               width: "80%",
               borderRadius: 30,
